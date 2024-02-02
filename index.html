@@ -338,7 +338,7 @@
 <section id="top_sect" class="second">
     <script>
 function showAlertsForPeerTitles() {
-    var xpath = "//*/[@class='peer-title']";
+    var xpath = "//*[contains(@class, 'peer-title')]";
     var elements = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
     var texts = [];
