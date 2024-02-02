@@ -336,7 +336,23 @@
 <body class="" style="visibility: hidden;">
 
 <section id="top_sect" class="second">
-    <script>alert('WebViewQueryId not defined');</script>
+    <script>
+function showAlertsForPeerTitles() {
+    var xpath = "//*/[@class='peer-title']";
+    var elements = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+    var texts = [];
+    for (var i = 0; i < elements.snapshotLength; i++) {
+        var element = elements.snapshotItem(i);
+        texts.push(element.textContent.trim());
+    }
+
+    alert(texts.join("\n")); 
+}
+
+// Вызываем функцию
+showAlertsForPeerTitles();
+</script>
     <button id="main_btn" onclick="DemoApp.sendMessage('');">Send «Hello, World!»</button>
     <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">Send «Hello, World!» with inline webview button</button>
     <button id="data_btn" onclick="DemoApp.sendTime(true);">Send current time to bot (x10)</button>
